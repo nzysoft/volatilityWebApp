@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Volatility Web App {% endblock %}</h1>
+    <table border="4">
+        <tr>
+            <th>Company Logo</th>
+            <th>Index</th>
+            <th>Ticker</th>
+            <th>Standard Deviation</th>
+        </tr>
+        {% for volatilityData in volatilityData %}
+            <tr>
+                <td><img src="{{ volatilityData['imageUrls'] }}" height="64" width="64"></td> 
+                <td>{{ volatilityData['index'] }}</td>
+                <td>{{ volatilityData['tickers'] }}</td>
+                <td>{{ volatilityData['stdDevs'] }}</td>
+            </tr>
+        {% endfor %} 
+    </table>
+{% endblock %}
